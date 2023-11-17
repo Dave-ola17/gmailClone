@@ -1,0 +1,74 @@
+body{
+    background-color:white;
+}
+
+.button{
+    position: relative;
+    background-color: #E5C388;
+    padding: 10px;
+    border-radius: 4px;
+    border:none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tooltip{
+    position: absolute;
+    display: none;
+    top : 110%;
+    padding: 5px;
+    background-color: #333;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    animation: moveup 0.1s linear;
+}
+
+.button:hover > .tooltip{
+    display: block;
+}
+.tooltip::after{
+    position: absolute;
+    content: "";
+    bottom: 100%;
+    left: 10%;
+    border-top: 5px solid #333;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+@keyframes mymove {
+    0% {
+        transform: translateY(10px) rotate(25deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+}
+/* For Webkit browsers (Chrome, Safari, newer versions of Opera) */
+/* You can also add these styles to a global stylesheet or a specific component stylesheet */
+
+/* Width and color */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    --tw-bg-opacity: 1;
+    background-color: rgb(212 212 216 / var(--tw-bg-opacity));
+    border-radius: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
