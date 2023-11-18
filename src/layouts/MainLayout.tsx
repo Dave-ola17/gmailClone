@@ -15,12 +15,12 @@ const MainLayout = ({ children, }: MainLayoutProps) => {
     const [search, setSearch] = useState(false);
     // state for the navbar width
     const [navWidth, setNavWidth ] = useState('20%');
-    const spanRef = useRef(null)
+    const spanRef = useRef<HTMLSpanElement | null >(null)
     const handleSearchClick = () => {
         setSearch(!search);
     }
-    const handleOutsideClick = (event:any) => {
-        if (spanRef.current && !spanRef.current.contains(event.target)) {
+    const handleOutsideClick = (event:Event) => {
+        if (spanRef.current && !spanRef.current.contains(event.target as Node)) {
             setSearch(false);
         }
     }
