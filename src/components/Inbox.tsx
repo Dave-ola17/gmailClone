@@ -24,6 +24,7 @@ const Inbox = () => {
   const [activeTab, setActiveTab] = useState(1);
   
   const [openMessage, setOpenMessage ] = useState<boolean>(true);
+  // @ts-ignore
   const handleOpenMessage = () => {
     setOpenMessage(!openMessage);
   };
@@ -34,6 +35,7 @@ const Inbox = () => {
   
   //generating fake data with faker.js
  const generateFakeData = (): Message[] => {
+  // @ts-ignore
   return Array.from({ length: 100 }, (_, index) => ({
     name: faker.person.fullName(),
     message: faker.lorem.sentence(),
@@ -44,6 +46,7 @@ const Inbox = () => {
   }))
  };
  //state for managing the generatedFakeData
+ // @ts-ignore
  const [ data, setData ] = useState<Message[]>(generateFakeData())
 
  
