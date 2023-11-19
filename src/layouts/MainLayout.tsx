@@ -15,12 +15,12 @@ const MainLayout = ({ children, }: MainLayoutProps) => {
     const [search, setSearch] = useState(false);
     // state for the navbar width
     const [navWidth, setNavWidth ] = useState('20%');
-    const spanRef = useRef<HTMLSpanElement | null >(null)
+    const inputRef = useRef<HTMLInputElement | null >(null)
     const handleSearchClick = () => {
-        setSearch(!search);
+        setSearch(true);
     }
     const handleOutsideClick = (event:Event) => {
-        if (spanRef.current && !spanRef.current.contains(event.target as Node)) {
+        if (inputRef.current && !inputRef.current.contains(event.target as Node) && event.target !== inputRef.current ) {
             setSearch(false);
         }
     }
@@ -28,7 +28,7 @@ const MainLayout = ({ children, }: MainLayoutProps) => {
     useEffect(() => {
         document.addEventListener('click', handleOutsideClick)
         return () =>{
-            document.removeEventListener('click', handleOutsideClick)
+            document.removeEventListener('click', handleSearchClick)
         }
     })
     const toggleNavWidth = () => {
@@ -43,14 +43,15 @@ const MainLayout = ({ children, }: MainLayoutProps) => {
       </div>
       <div className="flex flex-col flex-1 shadow-lg">
             <div className="flex items-center justify-between bg-[#f2f2f2] py-4 px-5 ">              
-                <span ref={spanRef} onClick={handleSearchClick} className={` 
+                <span ref={inputRef} onClick={handleSearchClick} className={` 
                     ${search ? 'transition-transform transform bg-white  shadow-lg translate-y-1' : ''} 
                     flex items-center gap-2 px-5 py-2 border rounded-[3.5rem]                     
                      `}>
                     <span className=" p-4 rounded-[50%] hover:bg-zinc-300 transition ease-in-out "><AiOutlineSearch  /></span>
                     <span className=" flex">
                       <input className="pr-28 ps-2 outline-none " placeholder="Search..." type="text" />
-                      <button className={` ${search ? 'block bg-blue-500 px-2 py-1 rounded-md border-none text-white' : 'hidden'} my-auto`}>Search</button></span>
+                      <button type="submit" className={` ${search ? 'block bg-blue-500 px-2 py-1 rounded-md border-none text-white' : 'hidden'} my-auto`}>Search</button>
+                    </span>
                     <span className=" p-4 rounded-[50%] hover:bg-zinc-300 transition ease-in-out "><VscSettings /></span>
                 </span>
                 <div className="flex gap-3">

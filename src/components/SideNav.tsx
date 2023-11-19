@@ -101,7 +101,7 @@ import { RiSpam2Line, RiDeleteBinLine, } from 'react-icons/ri'
                 </button>
               </div>
               {/* this div is used to set the overflow for all the items of the side nav */}
-              <div className={`${seeMore ? 'hover:overflow-y-auto h-[400px]' : 'overflow-hidden'} h-screen`}>
+              <div className={`${seeMore ? 'hover:overflow-y-auto h-[370px]' : 'overflow-hidden'} h-screen`}>
                 <ul className=" items-start justify-start list-none flex flex-col gap-2 "> 
                     <li className=" flex gap-2 hover:bg-zinc-300 w-full">                    
                        <Link  
