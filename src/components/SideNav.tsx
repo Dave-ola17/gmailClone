@@ -22,13 +22,13 @@ import { RiSpam2Line, RiDeleteBinLine, } from 'react-icons/ri'
       bottom: '0', // Adjust as needed
       padding: '0',
       marginRight: '0',
-      
       transform: !widthSize ? 'translateX(-50%) scale(0.8)' : 'none',
       width:  widthSize ? '70%' : '500px', // Adjust the width as needed
       // height: '400px'
     },
     overlay: {
       backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      zIndex: 1005,
     }
   });
   
@@ -217,8 +217,9 @@ import { RiSpam2Line, RiDeleteBinLine, } from 'react-icons/ri'
           // onRequestClose={handleCloseModal}
           style={customModalStyles(widthSize)}
           contentLabel="Compose Modal"
+          onRequestClose={handleCloseModal}
           >
-             <div className=" w-full gap-y-10 ">
+             <div className=" w-full gap-y-10">
               <div className=" bg-[#f2f2f2]  flex justify-between ">
                 <h2 className=" py-2 px-1 font-bold ">New message</h2>
                 {/* icons for the Close modal */}
